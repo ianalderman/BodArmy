@@ -1,0 +1,53 @@
+{
+    "SystemType": "Windows",
+    "Actions": {
+        "Startup" : "true",
+        "Shutdown" : "true"
+    },
+    "Schedules": [
+        {
+            "DaysOfWeek": "Monday, Tuesday, Wednesday, Thursday, Friday",
+            "StartTime": "09:00",
+            "EndTime": "11:00"
+        },
+        {
+            "DaysOfWeek": "Saturday, Sunday",
+            "StartTime": "00:00",
+            "EndTime": "23:39"
+        },
+        {
+            "DaysOfWeek": "Thursday",
+            "StartTime": "18:00",
+            "EndTime": "23:39"
+        }
+    ],
+    "Credentials": {
+        "KeyVaultName": "PowerMgmtPolicyVault",
+        "Username": ".\\iana",
+        "PasswordSecret": "PowerMgmtUserWin"
+    },
+    "ShutdownScripts": [
+        {
+            "Command": "pwd",
+            "Delay": "20",
+            "ExpectedOutput": "C:\\Users\\iana\\Documents"
+        },
+        {
+            "Command": "whoami",
+            "Delay": "20"
+        }
+    ],
+    "StartupScripts": [
+        {
+            "Command": "echo hello",
+            "Delay": "15"
+        }
+    ],
+    "DependsOnVMs": [
+        {
+            "ResourceGroupName": "rgPolicyDemo",
+            "Name": "vmauditpol",
+            "Action": "Start"
+        }        
+    ]
+}

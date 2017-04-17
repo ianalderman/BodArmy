@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    h1= title
+    p Welcome to #{title}
+
+    table.table.table-striped.table-bordered
+        tr
+            td Name
+            td Note
+        each room in rooms
+            tr
+                td #{room.name._}
+                td #{room.note._}
+
+    form.well(action="/rooms/addroom", method="post")
+        label Room Name
+        br
+        input(name="item[name]", type="textbox")
+        br
+        br
+        label Room Note
+        br
+        textarea(name="item[note]")
+        br
+        br
+        button.btn(type="submit") Add item

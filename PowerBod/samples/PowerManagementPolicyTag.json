@@ -1,0 +1,46 @@
+{
+    "SystemType": "Linux",
+    "Actions": {
+        "Startup" : "true",
+        "Shutdown" : "true"
+    },
+    "Schedules": [
+        {
+            "DaysOfWeek": "Monday, Tuesday, Wednesday, Thursday, Friday",
+            "StartTime": "09:00",
+            "EndTime": "11:00"
+        },
+        {
+            "DaysOfWeek": "Saturday, Sunday",
+            "StartTime": "00:00",
+            "EndTime": "23:39"
+        }
+    ],
+    "Credentials": {
+        "KeyVaultName": "PowerMgmtPolicyVault",
+        "Username": "iana",
+        "PasswordSecret": "PowerMgmtPassword"
+    },
+    "ShutdownScripts": [
+        {
+            "Command": "pwd",
+            "Delay": "30"
+        },
+        {
+            "Command": "ps -aux",
+            "Delay": "90"
+        }
+    ],
+    "StartupScripts": [
+        {
+            "Command": "echo hello",
+            "Delay": "15"
+        }
+    ],
+    "DependsOnVMs": [
+        {
+            "ResourceGroup": "RGPowerManagementPolicyDemo",
+            "Name": "vmpwrpoldemo1"
+        }        
+    ]
+}
