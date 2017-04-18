@@ -4,10 +4,11 @@ Power Bod builds on the great Azure Automation run books which enable you to sto
 ## Features
 This runbook supports:
 
-    - Power Management Policies can be loaded from Azure Blob storage enabling support of policies longer than the Azure Tag Value limit of 256 charachters
+    - Power Management Policies can be stored in Tag Value or can be loaded from Azure Blob storage - enabling support of policies longer than the Azure Tag Value limit of 256 charachters
     - Multiple Schedules within a single policy
     - Multiple Linux & Windows startup scripts in sequence with delays between each script / command
     - Multiple Linux & Windows shut down scripts in sequence with delays between each script / command
+    - Check output of commands to ensure they match expected output
     - Start up dependencies - ensure a Virtual Machine is already running before this starts with the option to start if not
     - Parallel processing so that shutdown scripts with long delays do not prevent other machines shutting down
 
@@ -24,7 +25,7 @@ In order to use this runbook you will need:
         - Posh-SSH
     - Azure KeyVault to store credentials for remote commands: <https://docs.microsoft.com/en-us/azure/key-vault/key-vault-get-started>
     - To load your RunAs Certififace on your Hybrid Worker: <https://www.powershellgallery.com/packages/Export-RunAsCertificateToHybridWorker/1.0/Content/Export-RunAsCertificateToHybridWorker.ps1>
-    - To support managing Windows Servers you should run the following command on the Hybrid Worker: 
+    - To support managing Windows Servers you should run the following command on the Hybrid Worker:
     ```set-item wsman:\localhost\client\TrustedHosts -value * -force```
 
 ### Why Hybrid Worker?
