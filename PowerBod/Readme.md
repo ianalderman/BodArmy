@@ -56,6 +56,8 @@ Actions define if this policy is enabled for Starting or Stopping VMs - acceptab
 
 Schedules define when the inspected machine should be **on**, in the case of overlapping schedules the first matching schedule will win (processing is aborted when it hits a match).  Schedules have 3 components - ***DaysOfWeek*** acceptable values are any days of the week (full name no abbreviations - Monday not Mon or M), ***StartTime*** and ***EndTime*** acceptable values are valid times in 24hr clock notation. The sample below has two schedules - the first specifies the VM should be **on** each week day between 09:00 and 11:00, the second specifies the VM should be **on** all day at the weekend.
 
+**N.B. Times are in UTC**
+
 ```json
 "Schedules": [
         {
