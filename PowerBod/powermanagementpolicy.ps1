@@ -239,7 +239,7 @@ workflow rb-PowerManagement
                             LogOutput "Shutting Down VM: $($VM.ResourceGroupName)/$($VM.Name)" "Info" "$($VM.ResourceGroupName)/$($VM.Name)"
                             try {
                                 if (!$SafeMode) {
-                                    Stop-AzureRmVM -Id VM.ResourceId -Name $VM.Name -Force -ErrorAction Stop 
+                                    Stop-AzureRmVM -Id $VM.ResourceId -Name $VM.Name -Force -ErrorAction Stop 
                                     LogOperation "Stop VM" "Stop" "$($VM.ResourceGroupName)/$($VM.Name)"
                                 } else {
                                     LogOutput "Would have run the Shutdown command!" "Info" "$($VM.ResourceGroupName)/$($VM.Name)"
